@@ -44,6 +44,7 @@ The Red Team was able to penetrate `Target 1` and retrieve the following confide
 The first sensitive document,`flag1.txt`, was found by searching through the page source information of the Service page of the website `http://192.168.1.110/service.html`.
 #
 ![Flag1:Service Page of Website](Images/flag1_website_servicepage.PNG)
+
 Next, the Red Team enumerated the users within the Wordpress site with the WPScan Wordpress Security Scanner.
 **Command:** `wpscan --url http://192.168.1.110/wordpress --enumerate u`
 #
@@ -53,9 +54,8 @@ This command listed two users within the Wordpress site: `michael` and `steven`.
 ![Users Found](Images/wpscan_users.PNG)
 
 With this information, Michael's account was able to be accessed via SSH due to the simplicity of his password. His password was `michael`.
-**Commands:** `ssh michael@192.168.1.110`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`yes`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`michael`
+**Commands:** `ssh michael@192.168.1.110`;`yes`;`michael`
+
 ![Access to Michael's Account](Images/ssh_michael.PNG)
 
 Once logged in as Michael, the second sensitive document,`flag2.txt`, was exposed within the /var/www/ directory.
@@ -65,4 +65,16 @@ The document flag1.txt could be access again by navigating to the /var/www/html 
 ![Flag1:Michael's Account](Images/flag_1.PNG)
 
 From this point, the Red Team navigated to the `wp_config.php` file to obtain the MYSQL database password.
+#
 ![Path to wp_config.php](Images/path_wpconfig.PNG) ![MySQL Database Credentials](Images/MySQL_Creds.PNG)
+
+With the MySQL database credentials, the Red Team was able to extract the password hashes of both Michael and Steven using the following commands:
+`mysql -h localhost -u root -pR@v3nSecurity`
+#
+![MySQL Login](Images/mysql_login)
+
+`show databases;`;`use wordpress;`;`show tables;`;`SELECT * FROM wp_users;`OR `SELECT ID, user_login, userpass FROM wp_users`
+#
+![Hashes Only](Images/hashes_only.PNG)
+#
+![Hashes Only](Images/hashes_verbose.PNG)
