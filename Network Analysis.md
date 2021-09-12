@@ -12,12 +12,16 @@ At least two users on the network have been wasting time on YouTube. Usually, IT
 You must inspect your traffic capture to answer the following questions in your Network Report:
 1. What is the domain name of the users' custom site? `frank-n-ted.com`
     ![Custom Site](Images/Network_Analysis/domain_name_franknted.PNG)
-2. What is the IP address of the Domain Controller (DC) of the AD network? `
-3. What is the name of the malware downloaded to the 10.6.12.203 machine?
+2. What is the IP address of the Domain Controller (DC) of the AD network? `10.6.12.12`
+    ![IP Address of Domain Controller](Images/Network_Analysis/ip_domaincontroller.PNG)
+3. What is the name of the malware downloaded to the 10.6.12.203 machine? `june11.dll`
+    ![Malware Downloaded Filter](Images/Network_Analysis/malwaredownloaded_filter2.PNG)
+    ![Malware Downloaded](Images/Network_Analysis/malwaredownloaded_10.12.203.PNG)
    - Once you have found the file, export it to your Kali machine's desktop.
-
-4. Upload the file to [VirusTotal.com](https://www.virustotal.com/gui/). 
-5. What kind of malware is this classified as?
+    **Export Path:** `File`> `Export Objects` > `Save All`
+4. Upload the file to [VirusTotal.com](https://www.virustotal.com/gui/).
+    ![Virus Total Upload](Images/Network_Analysis/virustotal_trojan.PNG)
+5. What kind of malware is this classified as? `Trojan Malware`
 
 #### Vulnerable Windows Machines
 
@@ -30,15 +34,17 @@ The Security team received reports of an infected Windows host on the network. T
 Inspect your traffic to answer the following questions in your network report:
 
 1. Find the following information about the infected Windows machine:
-    - Host name
-    - IP address
-    - MAC address
-    
-2. What is the username of the Windows user whose computer is infected?
-3. What are the IP addresses used in the actual infection traffic?
+    - Host name: `ROTTERDAM-PC$
+    ![Host Name: ROTTERDAM](Images/Network_Analysis/rotterdam.PNG)
+    - IP address: `172.16.4.205`
+    - MAC address: `00:59:07:b0:63:a4`
+    ![ROTTERDAM MAC and IP](Images/Network_Analysis/infectedmachine_mac&ip_2.PNG)
+2. What is the username of the Windows user whose computer is infected? `matthijs.revries`
+    ![Username of Windows user](Images/Network_Analysis/vulnerable windows_2.PNG)
+3. What are the IP addresses used in the actual infection traffic? '185.243.115.84 and 166.62.111.64'
+    ![Infected Traffic](Images/Network_Analysis/vwm_3.PNG)
 4. As a bonus, retrieve the desktop background of the Windows host.
-
-
+    ![Desktop Background](Images/Network_Analysis/bonus.PNG)
 #### Illegal Downloads
 
 IT was informed that some users are torrenting on the network. The Security team does not forbid the use of torrents for legitimate purposes, such as downloading operating systems. However, they have a strict policy against copyright infringement.
@@ -52,8 +58,10 @@ IT shared the following about the torrent activity:
 Your task is to isolate torrent traffic and answer the following questions in your Network Report:
 
 1. Find the following information about the machine with IP address `10.0.0.201`:
-    - MAC address
-    - Windows username
-    - OS version
+    - MAC address: `00:16:17:18:66:c8`
+    - Windows username: `elmer.blanco`
+    ![Windows Username of 10.0.0.201](Images/Network_Analysis/elmer.blanco.PNG)
+    - OS version: `Windows NT 10.0'
 
-2. Which torrent file did the user download?
+2. Which torrent file did the user download? `Betty_Boop_Rhythm_on_the_Reservation.avi.torrent`
+    ![Torrent File](Images/Network_Analysis/torrent_bettyboop.PNG)
