@@ -16,7 +16,7 @@ You must inspect your traffic capture to answer the following questions in your 
     ![IP Address of Domain Controller](Images/Network_Analysis/ip_domaincontroller.PNG)
 3. What is the name of the malware downloaded to the 10.6.12.203 machine? `june11.dll`
     ![Malware Downloaded Filter](Images/Network_Analysis/malwaredownloaded_filter2.PNG)
-    ![Malware Downloaded](Images/Network_Analysis/malwaredownloaded_10.12.203.PNG)
+    ![Malware Downloaded](Images/Network_Analysis/malwaredownloaded_10.6.12.203.PNG)
    - Once you have found the file, export it to your Kali machine's desktop.
     **Export Path:** `File`> `Export Objects` > `Save All`
 4. Upload the file to [VirusTotal.com](https://www.virustotal.com/gui/).
