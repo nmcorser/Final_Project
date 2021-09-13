@@ -59,6 +59,7 @@ Alert 2 is implemented as follows:
   - **Threshold**: IS ABOVE 400 FOR THE LAST 5 minutes
   - **Vulnerability Mitigated**: Enumeration and Brute Force Attacks
   - **Reliability**: This alert has low reliablity. There were no alerts triggered when the attacker enumerated the users within the WordPress site using wpscan or when Michael's password was brute-forced with hydra. Only when a very aggressive scan occurred (i.e. dirb) did the alert trigger.
+ 
 ![HTTP Errors](Images/Blue_Team/http_errors.PNG)
 #### HTTP Request Size Monitor
 Alert 3 is implemented as follows:
@@ -74,7 +75,7 @@ Alert 4 is implemented as follows:
   -  **Metric**: WHEN count() GROUPED OVER top 5 'system.auth.ssh.event'
   - **Threshold**: IS ABOVE 20 FOR THE LAST 1 minutes
   - **Vulnerability Mitigated**: User Enumeration and Excessive SSH Login Attempts
-  - **Reliability**: This alert is highly reliable. 
+  - **Reliability**: This alert is highly reliable. The alert triggered when an attempt the enumerate the users with the following command was used: ./ssh-username-enum.py -v -w /usr/share/wordlists/metasploit/unix_users.txt 192.168.1.110
  ![HTTP Errors](Images/Blue_Team/ssh_monitor.PNG)
 ### Suggestions for Going Further
 
@@ -103,7 +104,7 @@ The logs and alerts generated during the assessment suggest that this network is
   - **Why It Works**:
     1. NIDSs monitor network traffic and will create alerts if suspicious activity is detected. Although Network Intrustion Prevention Systems (NIPSs) are an anvatageous choice, NIDSs only alert of the suspicious activity and allow administrators to determine whether or not the traffic is malicious. This is ideal in a business since because NIPSs have the potential to deny suspicious, but ultimiately nonmalicious traffic which could have a negative impact on the company.
     2. By creating request limits specialized for the system's needs, if malicious actors try to exceed these limits they will receive a 404 message and be denied of that action. These error messages will be be logged as a substatus messages (i.e. 404.14=URL Too Long, 404.15=Query String Too Long, etc.) which will allow investigators to analyze the attackers attempted methods of exploitation.
- - Vulnerability 4: SSH Request Size Monitor
+- Vulnerability 4: SSH Request Size Monitor
   - **Patch**:
     1. Limit which users are allowed to login via SSH by editing the /etc/ssh/ssh_configd file. (Mitre Att&ck: M1018)
     2. Implement Multi-Factor Authenification Protocols (Mitre Att&ck: M1032)
