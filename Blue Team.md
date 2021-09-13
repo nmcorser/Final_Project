@@ -8,7 +8,7 @@
 - Suggestions for Going Further
 
 ### Network Topology
-_TODO: Fill out the information below._
+![Network Topology](Images/Blue_Team/Network_Diagram_Final_Project.drawio)
 
 The following machines were identified on the network:
 - CAPSTONE (This machine was located within the network but not utilized during the attack.)
@@ -90,7 +90,7 @@ The logs and alerts generated during the assessment suggest that this network is
 - Vulnerability 2: Enumeration of Users
   - **Patch**:
 1. Remove Ability to Enumerate Through Author Archives 
-![Code to Block Enumeration](Images/codesnippet_enumeration.PNG)
+![Code to Block Enumeration](Images/Blue_Team/codesnippet_enumeration.PNG)
 2. Install Regular Updates to Website
   - **Why It Works**:
     1. By inserting the code listed above into the website's functions.php file (reference: https://medium.com/@ahmed_elhady/wordpress-username-enumeration-techniques-2ca0510df632), this removes the ability to enumerate users with both wpscan and through author archives (http://192.168.1.110/wordpress/?author=1).
