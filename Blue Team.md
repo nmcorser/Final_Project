@@ -8,7 +8,7 @@
 - Suggestions for Going Further
 
 ### Network Topology
-![Network Topology](Images/Blue_Team/Network_Diagram_Final_Project.drawio)
+![Network Topology](Images/Blue_Team/Network_Diagram_Final_Project.PNG)
 
 The following machines were identified on the network:
 - CAPSTONE (This machine was located within the network but not utilized during the attack.)
