@@ -80,17 +80,18 @@ Alert 4 is implemented as follows:
 The logs and alerts generated during the assessment suggest that this network is susceptible to several active threats, identified by the alerts above. In addition to watching for occurrences of such threats, the network should be hardened against them. The Blue Team suggests that IT implement the fixes below to protect the network:
 - Vulnerability 1: CPU Usage Improvements
   - **Patch**: 
-    1. Install Anti-Viral/Anti-Malware Software
-    2. Install Host-based Intrusion Detection System (HIDS)
-    3. Perform Regular Optimization Scans
+1. Install Anti-Viral/Anti-Malware Software
+2. Install Host-based Intrusion Detection System (HIDS)
+3. Perform Regular Optimization Scans
   - **Why It Works**: 
-    1. Ensures that computer has not been compromised and will remove malicous programs.
-    2. HIDS give the user a historical record of the activiy occuring on the device. This allows for the identification of abnormal patterns within the system that may not trigger alerts.
-    3. Performing optimization scans on devices allows your device to reconfigure how data is stored within the computer which ultimately take strain off of the system keeping the cpu usage lower and increases the performance of the device.
+1. Ensures that computer has not been compromised and will remove malicous programs.
+2. HIDS give the user a historical record of the activiy occuring on the device. This allows for the identification of abnormal patterns within the system that may not trigger alerts.
+3. Performing optimization scans on devices allows your device to reconfigure how data is stored within the computer which ultimately take strain off of the system keeping the cpu usage lower and increases the performance of the device.
 - Vulnerability 2: Enumeration of Users
   - **Patch**:
-    1. Remove Ability to Enumerate Through Author Archives ![Code to Block Enumeration](Images/codesnippet_enumeration.PNG)
-    2. Install Regular Updates to Website
+1. Remove Ability to Enumerate Through Author Archives 
+![Code to Block Enumeration](Images/codesnippet_enumeration.PNG)
+2. Install Regular Updates to Website
   - **Why It Works**:
     1. By inserting the code listed above into the website's functions.php file (reference: https://medium.com/@ahmed_elhady/wordpress-username-enumeration-techniques-2ca0510df632), this removes the ability to enumerate users with both wpscan and through author archives (http://192.168.1.110/wordpress/?author=1).
     2. By ensuring updates are performed regularly, any vulnerabilities found can be patche which reduces the likelihood of an attacker being able to exploit weaknesses.
