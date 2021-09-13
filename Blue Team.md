@@ -88,21 +88,21 @@ The logs and alerts generated during the assessment suggest that this network is
   - **Why It Works**: 
     1. Ensures that computer has not been compromised and will remove malicous programs.
     2. HIDS give the user a historical record of the activiy occuring on the device. This allows for the identification of abnormal patterns within the system that may not trigger alerts.
-    3. Performing optimization scans on devices allows your device to reconfigure how data is stored within the computer which ultimately take strain off of the system keeping the cpu usage lower and increases the performance of the device.
+    3. Performing optimization scans on devices allows your device to reconfigure how data is stored within the computer which ultimately takes strain off of the system keeping the cpu usage lower and increases the performance of the device.
 - Vulnerability 2: Enumeration of Users
   - **Patch**:
     1. Remove Ability to Enumerate Through Author Archives 
     ![Code to Block Enumeration](Images/Blue_Team/codesnippet_enumeration.PNG)
     2. Install Regular Updates to Website
   - **Why It Works**:
-    1. By inserting the code listed above into the website's functions.php file (reference: https://medium.com/@ahmed_elhady/wordpress-username-enumeration-techniques-2ca0510df632), this removes the ability to enumerate users with both wpscan and through author archives (http://192.168.1.110/wordpress/?author=1).
-    2. By ensuring updates are performed regularly, any vulnerabilities found can be patche which reduces the likelihood of an attacker being able to exploit weaknesses.
+    1. By inserting the code listed above into the website's functions.php file (reference: https://medium.com/@ahmed_elhady/wordpress-username-enumeration-techniques-2ca0510df632), this removes the ability to enumerate users with both wpscan and through author archives (192.168.1.110/wordpress/?author=1).
+    2. By ensuring updates are performed regularly, any vulnerabilities found can be patched which reduces the likelihood of an attacker being able to exploit weaknesses.
 - Vulnerability 3: HTTP Request Size Monitor
   - **Patch**:
     1. Install Network Intrustion Detection System (NIDS)
     2. Configure Request Limits: Max Request Length, Max URL Lengths, Max Number of Cookies, Max Header Length Value, etc.
   - **Why It Works**:
-    1. NIDSs monitor network traffic and will create alerts if suspicious activity is detected. Although Network Intrustion Prevention Systems (NIPSs) are an anvatageous choice, NIDSs only alert of the suspicious activity and allow administrators to determine whether or not the traffic is malicious. This is ideal in a business since because NIPSs have the potential to deny suspicious, but ultimiately nonmalicious traffic which could have a negative impact on the company.
+    1. NIDSs monitor network traffic and will create alerts if suspicious activity is detected. Although Network Intrustion Prevention Systems (NIPSs) are an anvatageous choice, NIDSs only alert of the suspicious activity and allow administrators to determine whether or not the traffic is malicious. This is ideal in a business setting because NIPSs have the potential to deny suspicious, but ultimiately non-malicious traffic which could have a negative impact on the company.
     2. By creating request limits specialized for the system's needs, if malicious actors try to exceed these limits they will receive a 404 message and be denied of that action. These error messages will be be logged as a substatus messages (i.e. 404.14=URL Too Long, 404.15=Query String Too Long, etc.) which will allow investigators to analyze the attackers attempted methods of exploitation.
 - Vulnerability 4: SSH Request Size Monitor
   - **Patch**:
@@ -110,4 +110,4 @@ The logs and alerts generated during the assessment suggest that this network is
     2. Implement Multi-Factor Authenification Protocols (Mitre Att&ck: M1032)
   - **Why It Works**:
     1. By limiting the number of users allowed to login remotely, this will decrease the attack surface that unauthenticated users can exploit.
-    2. The more layers of defense used to protect a system not only provides more obstacles for an attacker to access sensitive data, but also allows analysts more time to notice unusual patterns occurring and possible stop the attack.
+    2. The more layers of defense used to protect a system not only provides more obstacles for an attacker to infiltrate before they can gain access to sensitive data, but also allows analysts more time to notice unusual patterns occurring and possible stop the attack.
