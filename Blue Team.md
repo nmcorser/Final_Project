@@ -80,10 +80,10 @@ Alert 4 is implemented as follows:
 
 The logs and alerts generated during the assessment suggest that this network is susceptible to several active threats, identified by the alerts above. In addition to watching for occurrences of such threats, the network should be hardened against them. The Blue Team suggests that IT implement the fixes below to protect the network:
 - Vulnerability 1: CPU Usage Improvements
-  - **Patch**: 
-1.  Install Anti-Viral/Anti-Malware Software
-2.  Install Host-based Intrusion Detection System (HIDS)
-3.  Perform Regular Optimization Scans
+    - **Patch**: 
+        1.  Install Anti-Viral/Anti-Malware Software
+        2.  Install Host-based Intrusion Detection System (HIDS)
+        3.  Perform Regular Optimization Scans
   - **Why It Works**: 
     1. Ensures that computer has not been compromised and will remove malicous programs.
     2. HIDS give the user a historical record of the activiy occuring on the device. This allows for the identification of abnormal patterns within the system that may not trigger alerts.
