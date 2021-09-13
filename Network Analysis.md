@@ -34,7 +34,7 @@ The Security team received reports of an infected Windows host on the network. T
 Inspect your traffic to answer the following questions in your network report:
 
 1. Find the following information about the infected Windows machine:
-    - Host name: `ROTTERDAM-PC$
+    - Host name: `ROTTERDAM-PC$`
     ![Host Name: ROTTERDAM](Images/Network_Analysis/rotterdam.PNG)
     - IP address: `172.16.4.205`
     - MAC address: `00:59:07:b0:63:a4`
