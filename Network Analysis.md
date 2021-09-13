@@ -38,9 +38,9 @@ Inspect your traffic to answer the following questions in your network report:
     ![Host Name: ROTTERDAM](Images/Network_Analysis/rotterdam.PNG)
     - IP address: `172.16.4.205`
     - MAC address: `00:59:07:b0:63:a4`
-    ![ROTTERDAM MAC and IP](Images/Network_Analysis/infectedmachine_mac&ip.PNG)
+    ![ROTTERDAM MAC and IP](Images/Network_Analysis/rotterdam_2.PNG)
 2. What is the username of the Windows user whose computer is infected? `matthijs.revries`
-    ![Username of Windows user](Images/Network_Analysis/vulnerable windows_2.PNG)
+    ![Username of Windows user](Images/Network_Analysis/vulnerable_windows_2.PNG)
 3. What are the IP addresses used in the actual infection traffic? `185.243.115.84 and 166.62.111.64`
     ![Infected Traffic](Images/Network_Analysis/vwm_3.PNG)
 4. As a bonus, retrieve the desktop background of the Windows host.
