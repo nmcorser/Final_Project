@@ -64,7 +64,7 @@ Alert 3 is implemented as follows:
   - **Indices to Query**: PacketBeat
   -  **Metric**: WHEN sum () OF http.request.bytes OVER all documents
   - **Threshold**: IS ABOVE 3500 FOR THE LAST 1 minute
-  - **Vulnerability Mitigated**: Enumeration
+  - **Vulnerability Mitigated**: Enumeration and Distributed Denial of Service (DDoS)
   - **Reliability**: This alert has medium reliability. The alert triggered (false positive) during normal user activity as well as when an attack was occurring.
  ![HTTP Errors](Images/Blue_Team/http_request_size.PNG)
 #### SSH Request Size Monitor
@@ -89,14 +89,18 @@ The logs and alerts generated during the assessment suggest that this network is
     3. Performing optimization scans on devices allows your device to reconfigure how data is stored within the computer which ultimately take strain off of the system keeping the cpu usage lower and increases the performance of the device.
 - Vulnerability 2: Enumeration of Users
   - **Patch**:
-    1. Remove Ability to Enumerate Through Author Archives ![Code to Block Enumeration](Images/codesnippet_enumeration)
+    1. Remove Ability to Enumerate Through Author Archives ![Code to Block Enumeration](Images/codesnippet_enumeration.PNG)
     2. Install Regular Updates to Website
   - **Why It Works**:
     1. By inserting the code listed above into the website's functions.php file (reference: https://medium.com/@ahmed_elhady/wordpress-username-enumeration-techniques-2ca0510df632), this removes the ability to enumerate users with both wpscan and through author archives (http://192.168.1.110/wordpress/?author=1).
     2. By ensuring updates are performed regularly, any vulnerabilities found can be patche which reduces the likelihood of an attacker being able to exploit weaknesses.
 - Vulnerability 3: HTTP Request Size Monitor
-  - **Patch**: TODO: E.g., _install `special-security-package` with `apt-get`_
-  - **Why It Works**: TODO: E.g., _`special-security-package` scans the system for viruses every day_
+  - **Patch**:
+    1. Install Network Intrustion Detection System (NIDS)
+    2. Configure Request Limits: Max Request Length, Max URL Lengths, Max Number of Cookies, Max Header Length Value, etc.
+  - **Why It Works**:
+    1. NIDSs monitor network traffic and will create alerts if suspicious activity is detected. Although Network Intrustion Prevention Systems (NIPSs) are an anvatageous choice, NIDSs only alert of the suspicious activity and allow administrators to determine whether or not the traffic is malicious. This is ideal in a business since because NIPSs have the potential to deny suspicious, but ultimiately nonmalicious traffic which could have a negative impact on the company.
+    2. By creating request limits specialized for the system's needs, if malicious actors try to exceed these limits they will receive a 404 message and be denied of that action. These error messages will be be logged as a substatus messages (i.e. 404.14=URL Too Long, 404.15=Query String Too Long, etc.) which will allow investigators to analyze the attackers attempted methods of exploitation.
  - Vulnerability 4: SSH Request Size Monitor
   - **Patch**:
     1. Limit which users are allowed to login via SSH by editing the /etc/ssh/ssh_configd file. (Mitre Att&ck: M1018)
