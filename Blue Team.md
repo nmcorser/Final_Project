@@ -9,7 +9,7 @@
 
 ### Network Topology
 
-![Network Topology]("C:\Users\nmcor\GitHubRepositories\Final_Project\Final_Project\Diagrams")
+![Network Topology](Diagrams/Network_Diagram_Final_Project.png)
 
 The following machines were identified on the network:
 - CAPSTONE (This machine was located within the network but not utilized during the attack.)
