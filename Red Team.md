@@ -46,11 +46,12 @@ The first sensitive document,`flag1.txt`, was found by searching through the pag
 ![Flag1:Service Page of Website](Images/flag1_website_servicepage.PNG)
 
 Next, the Red Team enumerated the users within the Wordpress site with the WPScan Wordpress Security Scanner.
-**Command:** `wpscan --url http://192.168.1.110/wordpress --enumerate u`
+**Command:**`wpscan --url http://192.168.1.110/wordpress --enumerate u`
 #
 ![WPScan Command](Images/wpscan_cmd.PNG)
 
 This command listed two users within the Wordpress site: `michael` and `steven`.
+#
 ![Users Found](Images/wpscan_users.PNG)
 
 With this information, Michael's account was able to be accessed via SSH due to the simplicity of his password. His password was `michael`.
@@ -59,6 +60,7 @@ With this information, Michael's account was able to be accessed via SSH due to 
 ![Access to Michael's Account](Images/ssh_michael.PNG)
 
 Once logged in as Michael, the second sensitive document,`flag2.txt`, was exposed within the /var/www/ directory.
+
 ![Flag2](Images/Flag_2.PNG)
 
 The document flag1.txt could be access again by navigating to the /var/www/html directory.
@@ -71,7 +73,7 @@ From this point, the Red Team navigated to the `wp_config.php` file to obtain th
 With the MySQL database credentials, the Red Team was able to extract the password hashes of both Michael and Steven using the following commands:
 `mysql -h localhost -u root -pR@v3nSecurity`
 #
-![MySQL Login](Images/mysql_login)
+![MySQL Login](Images/mysql_login.PNG)
 
 `show databases;`;`use wordpress;`;`show tables;`;`SELECT * FROM wp_users;`OR `SELECT ID, user_login, userpass FROM wp_users`
 #
@@ -82,7 +84,7 @@ With the MySQL database credentials, the Red Team was able to extract the passwo
 The hashes were then extracted from MySQL to .txt file located in the /tmp directory.
 **Command:**`SELECT * FROM wp_users INTO OUTFILE '/tmp/wp_hashes.txt';`
 #
-![Hashes Extracted](Images/hashes_to_outfile.PNG)
+![Hashes Extracted](Images/hashes_to_outputfile.PNG)
 
 Before exiting MySQL, two sensitive pieces of material,`flag3` and `flag4` were found within the wp_posts table.
 **Command:**SELECT * FROM wp_posts;
@@ -109,4 +111,3 @@ Steven's current privelages allowed him to run python scripts. By using the foll
 By increasing Steven's privelages to root, this allowed for the Red Team to freely move through the website and access or change any file desired. The final sensitive document,`flag4.txt`, was discovered within the root directory.
 #
 ![Flag4.txt](Images/flag4.PNG)
-steven_escalated_privelages
